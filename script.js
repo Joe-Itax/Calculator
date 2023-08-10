@@ -98,3 +98,28 @@ percentage.addEventListener('click', function (event) {
   input.value = `${resultPercentage}`;
   calcul.textContent = `${premierOperande} % = `;
 });
+
+// Fonction addition
+let premierOperande = 0;
+const addOperator1 = function () {
+  const addOperator = document.getElementById('plus');
+  addOperator.addEventListener('click', function (event) {
+    event.preventDefault();
+    premierOperande = Number(input.value);
+    input.value = '';
+    calcul.textContent = `${premierOperande} + `;
+    return premierOperande;
+  });
+  return Number(addOperator.dataset.value);
+};
+
+addOperator1();
+//Fonction calcul ==> premierOperande + deuxièmeOperande = resultat
+const equals = document.getElementById('equals');
+equals.addEventListener('click', function (event) {
+  event.preventDefault();
+  const deuxiemeOperande = Number(input.value);
+  const result = premierOperande + deuxiemeOperande;
+  input.value = `${result}`;
+  calcul.textContent = `${premierOperande} + ${deuxiemeOperande} = `;
+});
