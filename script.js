@@ -101,6 +101,7 @@ percentage.addEventListener('click', function (event) {
 
 // Fonction addition
 let premierOperande = 0;
+let operator = ['/', '*'];
 const addOperator1 = function () {
   const addOperator = document.getElementById('plus');
   addOperator.addEventListener('click', function (event) {
@@ -114,7 +115,7 @@ const addOperator1 = function () {
 };
 
 addOperator1();
-//Fonction calcul ==> premierOperande + deuxièmeOperande = resultat
+//Fonction calcul ==> premierOperande + operator + deuxièmeOperande = resultat
 const equals = document.getElementById('equals');
 equals.addEventListener('click', function (event) {
   event.preventDefault();
