@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <div>
+          <p class="text-right tex-white" id="input"></p>
+        </div>
+        <div>
+          <input
+            class="text-right text-1 text-right w-max p-15"
+            name="userInput"
+            type="text"
+            value=""
+            onblur="this.focus()"
+            maxlength="10"
+            autofocus
+          />
+        </div>
+        <div>
+          <div class="buttons">
+            <!-- <div>
+              <button type="button" class="secondary">C</button>
+            </div> -->
+            <div>
+              <button type="reset" class="danger">AC</button>
+            </div>
+            <div>
+              <button type="button" class="secondary">+/-</button>
+            </div>
+            <div>
+              <button type="submit" class="secondary">%</button>
+            </div>
+
+            <div>
+              <button type="submit">÷</button>
+            </div>
+            <div>
+              <button type="button" class="primary">7</button>
+            </div>
+            <div>
+              <button type="button" class="primary">8</button>
+            </div>
+            <div>
+              <button type="button" class="primary">9</button>
+            </div>
+            <div>
+              <button type="submit">×</button>
+            </div>
+            <div>
+              <button type="button" class="primary">4</button>
+            </div>
+            <div>
+              <button type="button" class="primary">5</button>
+            </div>
+            <div>
+              <button type="button" class="primary">6</button>
+            </div>
+            <div>
+              <button type="submit">-</button>
+            </div>
+            <div>
+              <button type="button" class="primary">1</button>
+            </div>
+            <div>
+              <button type="button" class="primary">2</button>
+            </div>
+            <div>
+              <button type="button" class="primary">3</button>
+            </div>
+            <div>
+              <button type="submit">+</button>
+            </div>
+            <div>
+              <button type="button">.</button>
+            </div>
+            <div>
+              <button type="button" class="primary">0</button>
+            </div>
+
+            <div>
+              <button type="submit">=</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script type="module" src="./calculator.js"></script>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
