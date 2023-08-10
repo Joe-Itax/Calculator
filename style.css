@@ -16,6 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Arial, sans-serif;
 }
 .container {
   min-width: 350px;
@@ -51,6 +52,7 @@ form {
 input {
   outline: none;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
@@ -73,12 +75,9 @@ input[type="number"] {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-gap: 15px;
-  /* height: 500px; */
 }
 
-.buttons > div:last-child {
-  grid-column: 3 / span 2;
-}
+
 button {
   border: none;
   border-radius: 18px;
@@ -86,26 +85,35 @@ button {
   outline: none;
   cursor: pointer;
   font-size: 1.5rem;
-  background-color: #fff;
-  color: #000;
+  background-color: white;
+  color: black;
   transition: all 0.3s ease;
   width: 100%;
 }
 
 .danger {
-  background-color: var(--danger);
+  background-color: #db324d;
   color: white;
 }
 
 .primary {
-  background-color: var(--anchor);
+  background-color: #41424c;
   color: white;
 }
 .secondary {
-  background-color: var(--flint);
+  background-color: #adadc9;
   color: white;
 }
 
 .tex-white {
   color: white;
+}
+
+.numpad {
+  background-color: #41424c;
+  color: white;
+}
+
+#clear {
+  background-color: #6262f4;
 }
