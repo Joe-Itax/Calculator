@@ -88,20 +88,6 @@ btns.forEach((btn) => {
     }
   });
 });
-
-//Fonction calcul de pourcentage d'une valeur
-const percentage = document.getElementById('percentage');
-percentage.addEventListener('click', function(event) {
-  event.preventDefault();
-  if (input.value.length >= 1) {
-    const premierOperande = Number(input.value);
-    input.value = '';
-    const resultPercentage = premierOperande / 100;
-    input.value = `${resultPercentage}`;
-    calcul.textContent = `${premierOperande} % = `;
-  }
-});
-
 //Les operateurs
 const dividebyOperator = document.getElementById('divideby');
 const multiplicationOperator = document.getElementById('times');
@@ -206,5 +192,18 @@ equals.addEventListener('click', function(event) {
     let result = eval(chainePremierOperande.join(' '));
     input.value = result;
     chainePremierOperande.length = 0;
+  }
+});
+
+//Fonction calcul de pourcentage d'une valeur
+const percentage = document.getElementById('percentage');
+percentage.addEventListener('click', function(event) {
+  event.preventDefault();
+  if (input.value.length >= 1) {
+    const premierOperande = Number(input.value);
+    input.value = '';
+    const resultPercentage = premierOperande / 100;
+    input.value = `${resultPercentage}`;
+    calcul.textContent = `${premierOperande} % = `;
   }
 });
