@@ -40,11 +40,11 @@ plusoumoins.addEventListener('click', function () {
   }
 });
 //Foncton pour ajout des valeurs numériques dans l'input
-const btns = document.querySelectorAll('button');
+const btns = document.querySelectorAll('.numpad');
 btns.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    switch (e.target.dataset.value) {
+    switch (btn.innerText) {
       case '1':
         input.value.indexOf('0') === 0 && input.value[1] !== '.'
           ? (input.value = '1')
@@ -108,6 +108,7 @@ btns.forEach((btn) => {
     }
   });
 });
+//***************************** */
 //Les operateurs
 const dividebyOperator = document.getElementById('divideby');
 const multiplicationOperator = document.getElementById('times');
