@@ -174,7 +174,7 @@ const multiplicationOperator1 = function () {
     const lastValue = chainePremierOperande.pop();
     if (input.value.length >= 1) {
       chainePremierOperande.push(input.value);
-      chainePremierOperande.push(' x ');
+      chainePremierOperande.push(' × ');
     }
     if (lastValue === ' * ') {
       chainePremierOperande.push(input.value);
@@ -215,13 +215,16 @@ equals.addEventListener('click', function (event) {
   event.preventDefault();
   if (input.value.length >= 1) {
     chainePremierOperande.push(input.value);
-    calcul.textContent = chainePremierOperande.join(' ') + ' =';
+    calcul.textContent = chainePremierOperande.join('') + ' =';
     let resultFinal = chainePremierOperande.join('');
-    resultFinal = resultFinal.replace('x', '*');
+    resultFinal = resultFinal.replace('×', '*');
     resultFinal = resultFinal.replace('÷', '/');
     console.log(resultFinal);
     let result = eval(resultFinal);
     input.value = result;
+    if(input.value.includes("Infinity")){
+      input.value = "Erreur";
+    }
     chainePremierOperande.length = 0;
   }
 });
@@ -235,6 +238,7 @@ percentage.addEventListener('click', function (event) {
     input.value = '';
     const resultPercentage = premierOperande / 100;
     input.value = `${resultPercentage}`;
-    calcul.textContent = ``;
+    // calcul.textContent = ``;
+    // calcul.textContent = "";
   }
 });
