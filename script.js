@@ -174,7 +174,7 @@ const multiplicationOperator1 = function () {
     const lastValue = chainePremierOperande.pop();
     if (input.value.length >= 1) {
       chainePremierOperande.push(input.value);
-      chainePremierOperande.push(' * ');
+      chainePremierOperande.push(' x ');
     }
     if (lastValue === ' * ') {
       chainePremierOperande.push(input.value);
@@ -196,9 +196,9 @@ const dividebyOperator1 = function () {
     const lastValue = chainePremierOperande.pop();
     if (input.value.length >= 1) {
       chainePremierOperande.push(input.value);
-      chainePremierOperande.push(' / ');
+      chainePremierOperande.push(' ÷ ');
     }
-    if (lastValue === ' / ') {
+    if (lastValue === ' ÷ ') {
       chainePremierOperande.push(input.value);
     } else {
       chainePremierOperande.push(lastValue);
@@ -216,7 +216,11 @@ equals.addEventListener('click', function (event) {
   if (input.value.length >= 1) {
     chainePremierOperande.push(input.value);
     calcul.textContent = chainePremierOperande.join(' ') + ' =';
-    let result = eval(chainePremierOperande.join(' '));
+    let resultFinal = chainePremierOperande.join('');
+    resultFinal = resultFinal.replace('x', '*');
+    resultFinal = resultFinal.replace('÷', '/');
+    console.log(resultFinal);
+    let result = eval(resultFinal);
     input.value = result;
     chainePremierOperande.length = 0;
   }
