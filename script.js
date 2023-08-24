@@ -15,7 +15,7 @@ const chainePremierOperande = [];
 const screenReset = () => {
   const reset = document.getElementById('reset');
 
-  reset.addEventListener('click', function() {
+  reset.addEventListener('click', function () {
     calcul.textContent = '';
     input.value = '';
     chainePremierOperande.length = 0;
@@ -23,7 +23,7 @@ const screenReset = () => {
 
   const clear = document.getElementById('clear');
 
-  clear.addEventListener('click', function() {
+  clear.addEventListener('click', function () {
     input.value = '';
     chainePremierOperande.length = 0;
   });
@@ -32,7 +32,7 @@ screenReset();
 
 //Bouton +/-
 const plusoumoins = document.getElementById('plusoumoins');
-plusoumoins.addEventListener('click', function() {
+plusoumoins.addEventListener('click', function () {
   if (input.value.length >= 1 && !input.value.includes('-')) {
     input.value = '-' + input.value;
   } else {
@@ -116,16 +116,16 @@ const minusOperator = document.getElementById('minus');
 const addOperator = document.getElementById('plus');
 
 //Fonction addition
-const plusOperator1 = function() {
-  addOperator.addEventListener('click', function(event) {
+const plusOperator1 = function () {
+  addOperator.addEventListener('click', function (event) {
     event.preventDefault();
     calcul.textContent = '';
     const lastValue = chainePremierOperande.pop();
     if (input.value.length >= 1) {
       chainePremierOperande.push(input.value);
-      chainePremierOperande.push('+');
+      chainePremierOperande.push(' + ');
     }
-    if (lastValue === '+') {
+    if (lastValue === ' + ') {
       chainePremierOperande.push(input.value);
     } else {
       chainePremierOperande.push(lastValue);
@@ -138,38 +138,45 @@ const plusOperator1 = function() {
 plusOperator1();
 
 // Fonction soustraction
-const minusOperator1 = function() {
-  minusOperator.addEventListener('click', function(event) {
+const minusOperator1 = function () {
+  minusOperator.addEventListener('click', function (event) {
     event.preventDefault();
     calcul.textContent = '';
     const lastValue = chainePremierOperande.pop();
-    if (input.value.length >= 1) {
+    if (input.value.length >= 1 /*&& typeof input.value === 'number'*/) {
       chainePremierOperande.push(input.value);
-      chainePremierOperande.push('-');
+      chainePremierOperande.push(' - ');
     }
-    if (lastValue === '-') {
+    if (lastValue === ' - ') {
       chainePremierOperande.push(input.value);
     } else {
       chainePremierOperande.push(lastValue);
     }
     calcul.textContent = chainePremierOperande.join('');
+
     input.value = '';
+    /*if (input.value === '-') {
+      chainePremierOperande.pop();
+      calcul.textContent.length = 0;
+    } else*/ if (input.value === '' && calcul.textContent === '') {
+      input.value = '-';
+    }
   });
 };
 
 minusOperator1();
 
 // Fonction multiplication
-const multiplicationOperator1 = function() {
-  multiplicationOperator.addEventListener('click', function(event) {
+const multiplicationOperator1 = function () {
+  multiplicationOperator.addEventListener('click', function (event) {
     event.preventDefault();
     calcul.textContent = '';
     const lastValue = chainePremierOperande.pop();
     if (input.value.length >= 1) {
       chainePremierOperande.push(input.value);
-      chainePremierOperande.push('*');
+      chainePremierOperande.push(' * ');
     }
-    if (lastValue === '*') {
+    if (lastValue === ' * ') {
       chainePremierOperande.push(input.value);
     } else {
       chainePremierOperande.push(lastValue);
@@ -182,16 +189,16 @@ const multiplicationOperator1 = function() {
 multiplicationOperator1();
 
 // Fonction division
-const dividebyOperator1 = function() {
-  dividebyOperator.addEventListener('click', function(event) {
+const dividebyOperator1 = function () {
+  dividebyOperator.addEventListener('click', function (event) {
     event.preventDefault();
     calcul.textContent = '';
     const lastValue = chainePremierOperande.pop();
     if (input.value.length >= 1) {
       chainePremierOperande.push(input.value);
-      chainePremierOperande.push('/');
+      chainePremierOperande.push(' / ');
     }
-    if (lastValue === '/') {
+    if (lastValue === ' / ') {
       chainePremierOperande.push(input.value);
     } else {
       chainePremierOperande.push(lastValue);
@@ -204,7 +211,7 @@ const dividebyOperator1 = function() {
 dividebyOperator1();
 
 const equals = document.getElementById('equals');
-equals.addEventListener('click', function(event) {
+equals.addEventListener('click', function (event) {
   event.preventDefault();
   if (input.value.length >= 1) {
     chainePremierOperande.push(input.value);
@@ -217,13 +224,13 @@ equals.addEventListener('click', function(event) {
 
 //Fonction calcul de pourcentage d'une valeur
 const percentage = document.getElementById('percentage');
-percentage.addEventListener('click', function(event) {
+percentage.addEventListener('click', function (event) {
   event.preventDefault();
   if (input.value.length >= 1) {
     const premierOperande = Number(input.value);
     input.value = '';
     const resultPercentage = premierOperande / 100;
     input.value = `${resultPercentage}`;
-    calcul.textContent = `${premierOperande} % = `;
+    calcul.textContent = ``;
   }
 });
